@@ -1,12 +1,30 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
+
+class Helper{
+    public int binToDec(String[] s1){             
+        String binaryString="1111";  
+        int decimal=Integer.parseInt(binaryString,2);  
+        System.out.println(decimal);
+        return decimal;
+    }
+}
+
+class ALU{
+    public String ADD(String[] s1, String[] s2){
+        String result;
+        Helper a = new Helper();
+        int res = a.binToDec(s1) + a.binToDec(s2);
+        result = a.decToBin(res);
+        return result;
+    }
+}
 class Main{
     public String[][] codes;
     public int[] register = new int[8];
     public static void main(String[] args){
 
-        File file = new File("D:\\Codes\\MIPS\\MIPS Using MIPS\\test.txt");
+        File file = new File(".\\test.txt");
         try {
             Main m = new Main();
             m.fileRead(file);
